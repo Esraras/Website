@@ -1,0 +1,150 @@
+﻿@model CvDeneme.Models.CvInformation
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center font-weight-bold">Başvuru Ekranı</h2>
+
+
+@using (Html.BeginForm("Create", "CvInformation", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4 class="text-success text-center">CV Bilgileri</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class = "control-label col-md-2 text-success">Resim</label>
+            <div class="col-md-10">
+                <input type="file" name="Image" class="btn btn-success" accept="image/*">
+                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 text-success">İsim</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 text-success">Soyisim</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 text-success">Telefon No</label>
+            <div class="col-md-10">
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                <input type="number" class="form-control" name="Phone" maxlength="10" />
+                <small>Format: 0123456789</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 text-success">E-Mail</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Mail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 text-success">Adres</label>
+            <div class="col-md-10">
+                <textarea class="form-control" aria-label="With textarea" name="Adress"></textarea>
+                @Html.ValidationMessageFor(model => model.Adress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 text-success">Posizyon</label>
+            <div class="col-md-10">
+                <textarea class="form-control" aria-label="With textarea" name="Position"></textarea>
+                @Html.ValidationMessageFor(model => model.Position, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 text-success">Kendinizden Bahsediniz</label>
+            <div class="col-md-10">
+                <textarea class="form-control" aria-label="With textarea" name="CoverLetter"></textarea>
+                @Html.ValidationMessageFor(model => model.CoverLetter, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 text-success">Eğitim Bilgileri</label>
+            <div class="col-md-10">
+                <textarea class="form-control" aria-label="With textarea" name="Education"></textarea>
+                @Html.ValidationMessageFor(model => model.Education, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 text-success">Deneyimler</label>
+            <div class="col-md-10">
+                <textarea class="form-control" aria-label="With textarea" name="Experience"></textarea>
+                @Html.ValidationMessageFor(model => model.Experience, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 text-success">Uzmanlık Alanı ve Yetenekler</label>
+            <div class="col-md-10">
+                <textarea class="form-control" aria-label="With textarea" name="Skills"></textarea>
+                @Html.ValidationMessageFor(model => model.Skills, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 text-success">Sertifikalar</label>
+            <div class="col-md-10">
+                <textarea class="form-control" aria-label="With textarea" name="Certificate"></textarea>
+                @Html.ValidationMessageFor(model => model.Certificate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 text-success">Sertifika Dokümanı</label>
+            <div class="col-md-10">
+                <input type="file" name="Documan" class="btn btn-success" accept=".pdf, .docx, .doc">
+                @Html.ValidationMessageFor(model => model.Documan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 text-success">Referanslar</label>
+            <div class="col-md-10">
+                <textarea class="form-control" aria-label="With textarea" name="Reference"></textarea>
+                @Html.ValidationMessageFor(model => model.Reference, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 text-success">Hobi ve İlgi Alanları</label>
+            <div class="col-md-10">
+                @Html.ValidationMessageFor(model => model.Hobby, "", new { @class = "text-danger" })
+                <textarea class="form-control" aria-label="With textarea" name="Hobby"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Ekle" formaction="/CvInformation/Create" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<br />
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

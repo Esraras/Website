@@ -1,0 +1,78 @@
+﻿@model CvDeneme.Models.CvInformation
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+<h2 class="text-center font-weight-bold">Görüntüleme Ekranı</h2>
+
+    <h4 class="text-success text-center">Cv Bilgileri</h4>
+    <hr />
+    <dl class="dl-horizontaly">
+
+        <dt><br /><br /><br /><label class="control-label col-md-10 text-success">Resim</label></dt>
+
+        <dd><br /><img src="@Model.Image" class="img-rounded" style="width:100px; height:100px" /><br /></dd>
+
+        <dt><br /><label class="control-label col-md-10 text-success">İsim</label></dt>
+
+        <dd><br />@Html.DisplayFor(model => model.Name)</dd>
+
+        <dt><label class="control-label col-md-10 text-success">Soyisim</label></dt>
+
+        <dd>@Html.DisplayFor(model => model.LName)</dd>
+
+        <dt><label class="control-label col-md-10 text-success">Telefon No</label></dt>
+
+        <dd><a href="tel:">@Html.DisplayFor(model => model.Phone)</a></dd>
+
+        <dt><label class="control-label col-md-10 text-success">E-Mail</label></dt>
+
+        <dd><a href="mailto:">@Html.DisplayFor(model => model.Mail)</a></dd>
+
+        <dt><label class="control-label col-md-10 text-success">Adres</label></dt>
+
+        <dd>@Html.DisplayFor(model => model.Adress)</dd>
+
+        <dt><label class="control-label col-md-10 text-success">Pozisyon/Görev</label></dt>
+
+        <dd>@Html.DisplayFor(model => model.Position)</dd>
+
+        <dt><label class="control-label col-md-10 text-success">Kendinizden Bahsediniz</label></dt>
+
+        <dd>@Html.DisplayFor(model => model.CoverLetter)</dd>
+
+        <dt><label class="control-label col-md-10 text-success">Eğitim Bilgileri</label></dt>
+
+        <dd>@Html.DisplayFor(model => model.Education)</dd>
+
+        <dt><label class="control-label col-md-10 text-success">Deneyimler</label></dt>
+
+        <dd>@Html.DisplayFor(model => model.Experience)</dd>
+
+        <dt><label class="control-label col-md-10 text-success">Yetenekler</label></dt>
+
+        <dd>@Html.DisplayFor(model => model.Skills)</dd>
+
+        <dt><label class="control-label col-md-10 text-success">Sertifika</label></dt>
+
+        <dd>@Html.DisplayFor(model => model.Certificate)</dd>
+
+        <dt><label class="control-label col-md-10 text-success">Sertifika Dokümanı</label></dt>
+
+        <dd>@Html.DisplayFor(model => model.Documan)</dd>
+
+        <dt><label class="control-label col-md-10 text-success">Referanslar</label></dt>
+
+        <dd>@Html.DisplayFor(model => model.Reference)</dd>
+
+        <dt><label class="control-label col-md-10 text-success">Hobi ve İlgi Alanları</label></dt>
+
+        <dd>@Html.DisplayFor(model => model.Hobby)</dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Yönetim Ekranına Geri Dön", "Index")
+</p>
